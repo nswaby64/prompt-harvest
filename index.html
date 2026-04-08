@@ -66,6 +66,967 @@
       border-color: var(--green); color: var(--green);
       transform: translateY(-1px);
     }
+    .btn-primary-green {
+      background: var(--green); color: #0a0a0a;
+      border: 1.5px solid var(--green); font-weight: 700;
+    }
+    .btn-primary-green:hover { background: #5ef090; border-color: #5ef090; }
+    .btn-outline-green {
+      background: transparent; color: var(--green);
+      border: 1.5px solid var(--green);
+    }
+    .btn-outline-green:hover {
+      background: var(--green-dim);
+      box-shadow: 0 0 0 3px var(--green-glow);
+    }
+    .btn-sm { padding: 8px 16px; font-size: 13px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,15,15,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+      font-weight: 700; font-size: 18px; letter-spacing: -0.3px;
+    }
+    .nav-logo:hover { color: var(--green); transition: color 0.2s; }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 14px;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; }
+    .nav-hamburger {
+      display: none; background: none; border: none;
+      color: var(--text); cursor: pointer; padding: 4px;
+    }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 0;
+      border-top: 1px solid var(--border); padding: 16px 24px 20px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--muted); text-decoration: none; font-size: 15px;
+      font-weight: 500; padding: 10px 0; border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn { margin-top: 16px; justify-content: center; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 96px 0 80px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(74,222,128,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-dim); border: 1px solid rgba(74,222,128,0.2);
+      color: var(--green); font-size: 13px; font-weight: 600;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 28px;
+      letter-spacing: 0.3px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -1.5px; margin-bottom: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #aaaaaa 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px); color: var(--muted);
+      max-width: 580px; margin: 0 auto 40px; line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 72px;
+    }
+
+    /* ─── EXTENSION MOCKUP ─── */
+    .mockup-wrapper {
+      display: flex; justify-content: center;
+    }
+    .ext-popup {
+      background: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 12px;
+      width: 360px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+      overflow: hidden;
+      text-align: left;
+      position: relative;
+    }
+    .ext-popup::before {
+      content: '';
+      position: absolute; inset: -1px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(74,222,128,0.15), transparent 50%);
+      pointer-events: none;
+    }
+    .ext-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid #2a2a2a;
+      background: #161616;
+    }
+    .ext-title-row { display: flex; align-items: center; gap: 8px; }
+    .ext-title-row span { font-size: 14px; font-weight: 700; color: #f0f0f0; }
+    .ext-badge {
+      background: rgba(74,222,128,0.15); color: var(--green);
+      font-size: 11px; font-weight: 700; padding: 2px 8px;
+      border-radius: 100px; border: 1px solid rgba(74,222,128,0.25);
+    }
+    .ext-filters {
+      display: flex; gap: 6px; padding: 12px 16px;
+      border-bottom: 1px solid #2a2a2a;
+      overflow-x: auto;
+    }
+    .ext-filters::-webkit-scrollbar { display: none; }
+    .filter-pill {
+      font-size: 12px; font-weight: 600; padding: 4px 12px;
+      border-radius: 100px; border: 1px solid #333; color: #888;
+      cursor: pointer; white-space: nowrap; background: transparent;
+      font-family: inherit; transition: all 0.15s;
+    }
+    .filter-pill.active {
+      background: var(--green-dim); border-color: rgba(74,222,128,0.3);
+      color: var(--green);
+    }
+    .ext-prompts { padding: 12px 16px; display: flex; flex-direction: column; gap: 10px; }
+    .prompt-card {
+      background: #222; border: 1px solid #2e2e2e; border-radius: 8px; padding: 12px;
+    }
+    .prompt-card-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .cat-badge {
+      font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px;
+      background: rgba(74,222,128,0.12); color: var(--green);
+      border: 1px solid rgba(74,222,128,0.2);
+    }
+    .cat-badge.coding {
+      background: rgba(96,165,250,0.12); color: #60a5fa;
+      border-color: rgba(96,165,250,0.2);
+    }
+    .copy-btn {
+      background: none; border: 1px solid #333; color: #666;
+      border-radius: 5px; padding: 3px 8px; font-size: 11px;
+      font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 4px;
+      transition: all 0.15s;
+    }
+    .copy-btn:hover { border-color: var(--green); color: var(--green); }
+    .prompt-text {
+      font-size: 12px; color: #b0b0b0; line-height: 1.5;
+    }
+    .ext-footer {
+      padding: 10px 16px; border-top: 1px solid #2a2a2a;
+      display: flex; justify-content: space-between; align-items: center;
+      background: #161616;
+    }
+    .ext-footer span { font-size: 11px; color: #555; }
+    .harvest-btn {
+      background: var(--green); color: #0a0a0a; border: none;
+      font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 6px;
+      font-family: inherit; cursor: pointer; display: flex; align-items: center; gap: 5px;
+    }
+
+    /* ─── SOCIAL PROOF ─── */
+    .social-proof {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+    .social-proof p {
+      color: var(--subtle); font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 20px;
+    }
+    .stat-pills {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 8px 20px; border-radius: 100px; font-size: 14px;
+      font-weight: 600; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .stat-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+    /* ─── HOW IT WORKS ─── */
+    .section { padding: 96px 0; }
+    .section-label {
+      font-size: 12px; font-weight: 700; color: var(--green);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+      letter-spacing: -1px; text-align: center; margin-bottom: 16px;
+    }
+    .section-sub {
+      text-align: center; color: var(--muted); font-size: 17px;
+      max-width: 520px; margin: 0 auto 60px;
+    }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .step-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px 28px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(74,222,128,0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--green-dim); border: 1px solid rgba(74,222,128,0.25);
+      color: var(--green); font-size: 18px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .step-icon { margin-bottom: 16px; }
+    .step-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .step-card p { color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+    /* ─── FEATURES ─── */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .feature-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 24px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(74,222,128,0.2);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    }
+    .feature-icon {
+      font-size: 28px; margin-bottom: 14px; display: block;
+    }
+    .feature-card h3 {
+      font-size: 16px; font-weight: 700; margin-bottom: 8px;
+    }
+    .feature-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px; max-width: 720px; margin: 0 auto;
+    }
+    .price-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px 32px;
+      transition: transform 0.2s;
+    }
+    .price-card:hover { transform: translateY(-3px); }
+    .price-card.featured {
+      border-color: rgba(74,222,128,0.35);
+      box-shadow: 0 0 0 1px rgba(74,222,128,0.1), 0 0 40px rgba(74,222,128,0.06);
+    }
+    .price-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--muted); margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .price-label .tag {
+      background: var(--green-dim); color: var(--green);
+      border: 1px solid rgba(74,222,128,0.25); font-size: 10px;
+      padding: 2px 8px; border-radius: 100px;
+    }
+    .price-tag {
+      font-size: 48px; font-weight: 800; letter-spacing: -2px;
+      margin-bottom: 4px; line-height: 1;
+    }
+    .price-tag span { font-size: 20px; font-weight: 600; color: var(--muted); }
+    .price-period { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .price-features {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 32px;
+    }
+    .price-features li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; color: #d0d0d0;
+    }
+    .price-features li svg { flex-shrink: 0; }
+    .coming-tag {
+      background: #222; border: 1px solid var(--border); color: var(--subtle);
+      font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 100px;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; background: none; border: none; color: var(--text);
+      padding: 20px 24px; font-family: inherit; font-size: 15px; font-weight: 600;
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; text-align: left; transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--green); }
+    .faq-chevron {
+      flex-shrink: 0; transition: transform 0.3s ease; color: var(--muted);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--green); }
+    .faq-item.open .faq-question { color: var(--green); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.2s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 24px 20px; color: var(--muted); font-size: 15px; line-height: 1.7;
+    }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      padding: 96px 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(74,222,128,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-size: clamp(32px, 5vw, 52px); font-weight: 800;
+      letter-spacing: -1.2px; margin-bottom: 16px;
+    }
+    .final-cta p { color: var(--muted); font-size: 18px; margin-bottom: 40px; }
+    .final-cta .btn { font-size: 17px; padding: 16px 36px; border-radius: 10px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-left { display: flex; flex-direction: column; gap: 6px; }
+    .footer-tagline { font-size: 13px; color: var(--muted); }
+    .footer-links {
+      display: flex; gap: 24px; align-items: center;
+    }
+    .footer-links a {
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy {
+      font-size: 13px; color: var(--subtle); text-align: right;
+    }
+
+    /* ─── LOGO SVG ─── */
+    .logo-svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+    /* ─── DIVIDER ─── */
+    .section-divider {
+      border: none; border-top: 1px solid var(--border);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { padding: 64px 0 56px; }
+      .section { padding: 64px 0; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-copy { text-align: left; }
+      .ext-popup { width: 100%; max-width: 340px; }
+      .hero-buttons .btn { width: 100%; justify-content: center; }
+      .hero-buttons { flex-direction: column; align-items: center; max-width: 320px; margin-left: auto; margin-right: auto; }
+      .price-card { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="12" height="12" rx="3" fill="#4ade80"/>
+          <rect x="18" y="2" width="12" height="12" rx="3" fill="#4ade80" opacity="0.7"/>
+          <rect x="2" y="18" width="12" height="12" rx="3" fill="#4ade80" opacity="0.7"/>
+          <rect x="18" y="18" width="12" height="12" rx="3" fill="#4ade80" opacity="0.4"/>
+        </svg>
+        Prompt Harvest
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://chromewebstore.google.com/detail/prompt-harvest/pfegpnhipcgfaioeoeoiknfafgajkkbm" class="btn btn-green btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l2.83 2.83L16 9.17"/></svg>
+          Add to Chrome — It's Free
+        </a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="toggleMenu()">Features</a>
+    <a href="#how-it-works" onclick="toggleMenu()">How it works</a>
+    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+    <a href="https://chromewebstore.google.com/detail/prompt-harvest/pfegpnhipcgfaioeoeoiknfafgajkkbm" class="btn btn-green" onclick="toggleMenu()">Add to Chrome — It's Free</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      Powered by Claude AI
+    </div>
+    <h1>Extract AI Prompts from<br />Any YouTube Video</h1>
+    <p>Prompt Harvest scans video transcripts and surfaces the best AI prompts — in one click. No copy-pasting. No rewatching.</p>
+    <div class="hero-buttons">
+      <a href="https://chromewebstore.google.com/detail/prompt-harvest/pfegpnhipcgfaioeoeoiknfafgajkkbm" class="btn btn-green">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Add to Chrome — Free
+      </a>
+      <a href="#how-it-works" class="btn btn-outline">
+        See how it works
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <!-- EXTENSION MOCKUP -->
+    <div class="mockup-wrapper">
+      <div class="ext-popup">
+        <div class="ext-header">
+          <div class="ext-title-row">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+              <rect x="2" y="2" width="12" height="12" rx="3" fill="#4ade80"/>
+              <rect x="18" y="2" width="12" height="12" rx="3" fill="#4ade80" opacity="0.7"/>
+              <rect x="2" y="18" width="12" height="12" rx="3" fill="#4ade80" opacity="0.7"/>
+              <rect x="18" y="18" width="12" height="12" rx="3" fill="#4ade80" opacity="0.4"/>
+            </svg>
+            <span>Prompt Harvest</span>
+          </div>
+          <div class="ext-badge">3 found</div>
+        </div>
+        <div class="ext-filters">
+          <button class="filter-pill active">All</button>
+          <button class="filter-pill">Writing</button>
+          <button class="filter-pill">Coding</button>
+          <button class="filter-pill">Analysis</button>
+          <button class="filter-pill">Productivity</button>
+        </div>
+        <div class="ext-prompts">
+          <div class="prompt-card">
+            <div class="prompt-card-top">
+              <span class="cat-badge">Writing</span>
+              <button class="copy-btn">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <p class="prompt-text">Act as a professional copywriter. Rewrite this paragraph to be more compelling and concise for a B2B SaaS audience...</p>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-card-top">
+              <span class="cat-badge coding">Coding</span>
+              <button class="copy-btn">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <p class="prompt-text">You are a senior software engineer. Review this code for performance bottlenecks and suggest optimizations with examples...</p>
+          </div>
+          <div class="prompt-card">
+            <div class="prompt-card-top">
+              <span class="cat-badge">Analysis</span>
+              <button class="copy-btn">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy
+              </button>
+            </div>
+            <p class="prompt-text">Analyze the following business idea and identify the top 3 risks, market opportunities, and a go-to-market strategy...</p>
+          </div>
+        </div>
+        <div class="ext-footer">
+          <span>4 extractions left this month</span>
+          <button class="harvest-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            Harvest Prompts
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOCIAL PROOF ─── -->
+<section class="social-proof">
+  <div class="container">
+    <p>Trusted by prompt engineers, content creators, and AI enthusiasts</p>
+    <div class="stat-pills">
+      <div class="stat-pill"><span class="stat-pill-dot"></span>1-Click Extraction</div>
+      <div class="stat-pill"><span class="stat-pill-dot"></span>5 Free / Month</div>
+      <div class="stat-pill"><span class="stat-pill-dot"></span>No Account Needed</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Three steps. That's it.</h2>
+    <p class="section-sub">No setup. No accounts. Just open a YouTube video and let Prompt Harvest do the work.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon">
+          <!-- YouTube play icon -->
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="rgba(239,68,68,0.12)"/>
+            <rect x="6" y="10" width="28" height="20" rx="5" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+            <polygon points="17,15 17,25 27,20" fill="#ef4444"/>
+          </svg>
+        </div>
+        <h3>Open any YouTube video</h3>
+        <p>Navigate to any YouTube video that covers AI, productivity, coding, writing — or any topic with useful prompts inside.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon">
+          <!-- Transcript/Document icon -->
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="rgba(74,222,128,0.08)"/>
+            <rect x="11" y="8" width="18" height="24" rx="3" fill="rgba(74,222,128,0.1)" stroke="rgba(74,222,128,0.3)" stroke-width="1"/>
+            <line x1="15" y1="15" x2="25" y2="15" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15" y1="19" x2="25" y2="19" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15" y1="23" x2="21" y2="23" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3>Click "Show Transcript"</h3>
+        <p>Expand the video description and click "Show Transcript" so YouTube loads the captions. Then open the Prompt Harvest extension.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon">
+          <!-- Sparkle/Magic icon -->
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="rgba(74,222,128,0.08)"/>
+            <path d="M20 10 L21.5 17.5 L29 19 L21.5 20.5 L20 28 L18.5 20.5 L11 19 L18.5 17.5 Z" fill="#4ade80" opacity="0.9"/>
+            <path d="M29 10 L29.8 13.2 L33 14 L29.8 14.8 L29 18 L28.2 14.8 L25 14 L28.2 13.2 Z" fill="#4ade80" opacity="0.5"/>
+            <path d="M11 24 L11.5 25.8 L13.3 26.3 L11.5 26.8 L11 28.6 L10.5 26.8 L8.7 26.3 L10.5 25.8 Z" fill="#4ade80" opacity="0.4"/>
+          </svg>
+        </div>
+        <h3>Hit "Harvest Prompts"</h3>
+        <p>Click the button. Claude AI scans the transcript in seconds and surfaces every usable AI prompt, neatly categorized and ready to copy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ─── FEATURES ─── -->
+<section class="section" id="features">
+  <div class="container">
+    <p class="section-label">Features</p>
+    <h2 class="section-title">Everything you need.</h2>
+    <p class="section-sub">Built lean, built fast. No bloat — just the features that matter.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Instant Extraction</h3>
+        <p>Pulls prompts from transcripts in seconds using Claude AI. No waiting, no spinning.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔒</span>
+        <h3>Privacy First</h3>
+        <p>No account required. Anonymous usage tracked by a local ID only — nothing personal ever stored.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏷️</span>
+        <h3>Smart Categorization</h3>
+        <p>Prompts are auto-tagged as Writing, Coding, Analysis, Productivity, and more — for fast filtering.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <h3>One-Click Copy</h3>
+        <p>Copy any single prompt or all prompts at once with a single click. Paste-ready, every time.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📜</span>
+        <h3>Prompt History</h3>
+        <p>Your extracted prompts are saved locally between sessions so you never lose a good prompt again.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🆓</span>
+        <h3>Free to Start</h3>
+        <p>5 extractions per month at no cost — no credit card, no sign-up, no strings attached.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ─── PRICING ─── -->
+<section class="section" id="pricing">
+  <div class="container">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Simple, honest pricing.</h2>
+    <p class="section-sub">Start for free. Upgrade when you're ready — no pressure.</p>
+
+    <div class="pricing-grid">
+      <!-- FREE -->
+      <div class="price-card featured">
+        <div class="price-label">
+          Free <span class="tag">Current</span>
+        </div>
+        <div class="price-tag">$0<span>/mo</span></div>
+        <p class="price-period">Forever free. No card needed.</p>
+        <ul class="price-features">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            5 extractions per month
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Anonymous usage — no account
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Prompt history (local storage)
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            All categories &amp; filters
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            One-click copy
+          </li>
+        </ul>
+        <a href="https://chromewebstore.google.com/detail/prompt-harvest/pfegpnhipcgfaioeoeoiknfafgajkkbm" class="btn btn-green" style="width:100%; justify-content:center;">
+          Add to Chrome — Free
+        </a>
+      </div>
+
+      <!-- PRO -->
+      <div class="price-card">
+        <div class="price-label">
+          Pro <span class="coming-tag">Coming Soon</span>
+        </div>
+        <div class="price-tag" style="color: var(--muted);">$9<span>/mo</span></div>
+        <p class="price-period">Unlimited extractions. Cancel anytime.</p>
+        <ul class="price-features">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="color:var(--subtle)">Unlimited extractions</span> <span class="coming-tag">Soon</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="color:var(--subtle)">Priority processing</span> <span class="coming-tag">Soon</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="color:var(--subtle)">Export to CSV / Notion</span> <span class="coming-tag">Soon</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="color:var(--subtle)">Bulk video processing</span> <span class="coming-tag">Soon</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Everything in Free
+          </li>
+        </ul>
+        <a href="https://buy.stripe.com/5kQ6oHcZJ3MRf1f0kvdby05" target="_blank" rel="noopener" class="btn btn-primary-green" style="width:100%; justify-content:center; text-decoration:none;">
+          Subscribe — $9 / month
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ─── FAQ ─── -->
+<section class="section" id="faq">
+  <div class="container">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Common questions.</h2>
+    <p class="section-sub" style="margin-bottom: 48px;">Everything you need to know before installing.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Does it work on all YouTube videos?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">It works on any YouTube video that has a transcript or captions available. Most videos with auto-generated or manual captions are supported. If a video has no captions at all, extraction won't be possible.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need to create an account?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No account needed. The extension uses an anonymous ID stored locally in your browser to track your monthly usage. Nothing personally identifiable is ever collected.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does the 5/month limit work?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Each time you click "Harvest Prompts" on a video, it counts as one extraction. Your count resets automatically at the start of each calendar month. The remaining count is always visible in the extension popup.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is my data private?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. Video transcript text is sent to our secure proxy server only for processing and is never stored on our servers. Your extracted prompts are saved locally in your browser only. See our <a href="https://gist.github.com/nswaby64/2e654ec004ce5b6b8ff4c148154d4205" style="color:var(--green);">Privacy Policy</a> for full details.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          When is Pro launching?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Pro is live now! Subscribe for $9/month to unlock unlimited extractions. <a href="https://buy.stripe.com/5kQ6oHcZJ3MRf1f0kvdby05" target="_blank" rel="noopener" style="color:#4ade80;">Subscribe here</a> — then enter your email in the extension to activate.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta" id="add-to-chrome">
+  <div class="container">
+    <h2>Start harvesting prompts today.</h2>
+    <p>Free forever. No account. No credit card.</p>
+    <a href="https://chromewebstore.google.com/detail/prompt-harvest/pfegpnhipcgfaioeoeoiknfafgajkkbm" class="btn btn-green">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Add to Chrome — It's Free
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a href="#" class="nav-logo" style="font-size:16px;">
+          <svg class="logo-svg" style="width:24px;height:24px;" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="2" width="12" height="12" rx="3" fill="#4ade80"/>
+            <rect x="18" y="2" width="12" height="12" rx="3" fill="#4ade80" opacity="0.7"/>
+            <rect x="2" y="18" width="12" height="12" rx="3" fill="#4ade80" opacity="0.7"/>
+            <rect x="18" y="18" width="12" height="12" rx="3" fill="#4ade80" opacity="0.4"/>
+          </svg>
+          Prompt Harvest
+        </a>
+        <span class="footer-tagline">Extract AI Prompts from YouTube Videos — Instantly</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://gist.github.com/nswaby64/2e654ec004ce5b6b8ff4c148154d4205" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://github.com/nswaby64/prompt-harvest-proxy" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:4px;"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Prompt Harvest. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── NAV MOBILE TOGGLE ───
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+
+  // ─── FAQ ACCORDION ───
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+
+    // Open clicked item if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // ─── SMOOTH ACTIVE NAV ───
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+    });
+  }, { passive: true });
+
+  // ─── COPY BUTTON MOCK INTERACTION ───
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      btn.style.color = 'var(--green)';
+      btn.style.borderColor = 'var(--green)';
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.color = '';
+        btn.style.borderColor = '';
+      }, 1500);
+    });
+  });
+
+  // ─── FILTER PILL MOCK INTERACTION ───
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Harvest — Extract AI Prompts from YouTube Videos</title>
+  <meta name="description" content="Automatically pulls AI prompts from any YouTube video transcript using Claude AI. Free. No account needed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --card: #1a1a1a;
+      --border: #2a2a2a;
+      --green: #4ade80;
+      --green-dim: rgba(74, 222, 128, 0.12);
+      --green-glow: rgba(74, 222, 128, 0.35);
+      --text: #f0f0f0;
+      --muted: #888;
+      --subtle: #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 8px; font-family: inherit;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: all 0.2s ease; border: none;
+    }
+    .btn-green {
+      background: var(--green); color: #0a0a0a;
+    }
+    .btn-green:hover {
+      background: #6ee8a0;
+      box-shadow: 0 0 0 4px var(--green-glow), 0 4px 20px var(--green-glow);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--green); color: var(--green);
+      transform: translateY(-1px);
+    }
     .btn-outline-green {
       background: transparent; color: var(--green);
       border: 1.5px solid var(--green);
