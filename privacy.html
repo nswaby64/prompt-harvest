@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Prompt Harvest</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --card: #111; --border: #1e1e1e;
+      --text: #e8e8e8; --muted: #888; --green: #4ade80;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px; line-height: 1.75;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    header a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 16px; display:flex; align-items:center; gap:8px; }
+    header a:hover { color: var(--green); }
+    .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 100px; }
+    h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 48px; }
+    h2 { font-size: 18px; font-weight: 700; margin: 40px 0 12px; color: #fff; }
+    p { color: var(--muted); margin-bottom: 14px; }
+    ul { color: var(--muted); padding-left: 20px; margin-bottom: 14px; }
+    ul li { margin-bottom: 6px; }
+    strong { color: var(--text); }
+    a { color: var(--green); }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th { text-align: left; padding: 10px 12px; background: var(--card); color: var(--text); font-size: 13px; border: 1px solid var(--border); }
+    td { padding: 10px 12px; color: var(--muted); font-size: 13px; border: 1px solid var(--border); vertical-align: top; }
+    .badge {
+      display: inline-block; background: rgba(74,222,128,0.1);
+      border: 1px solid rgba(74,222,128,0.2); color: var(--green);
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;
+    }
+    footer { border-top: 1px solid var(--border); padding: 24px 40px; text-align: center; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+      <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+    </svg>
+    Prompt Harvest
+  </a>
+</header>
+
+<div class="container">
+  <span class="badge">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: April 13, 2026 &nbsp;·&nbsp; Effective date: April 13, 2026</p>
+
+  <p>This Privacy Policy explains how Prompt Harvest ("we", "our", or "the extension") collects, uses, stores, and shares information when you use the Prompt Harvest Chrome extension. By installing or using the extension, you agree to the practices described here.</p>
+
+  <h2>1. Who We Are</h2>
+  <p>Prompt Harvest is a Chrome browser extension published by an individual developer. Contact: <a href="mailto:nswaby64@gmail.com">nswaby64@gmail.com</a></p>
+
+  <h2>2. What Data We Collect</h2>
+  <table>
+    <tr>
+      <th>Data Type</th>
+      <th>Description</th>
+      <th>Where Stored</th>
+    </tr>
+    <tr>
+      <td><strong>Anonymous User ID</strong></td>
+      <td>A randomly generated UUID created on first install. Contains no personal information. Used solely to enforce the monthly free-tier extraction limit.</td>
+      <td>Locally in Chrome storage only</td>
+    </tr>
+    <tr>
+      <td><strong>Pro subscriber email</strong></td>
+      <td>If you activate a Pro subscription, the email address you enter is stored locally to verify your subscription status against our server.</td>
+      <td>Locally in Chrome storage only</td>
+    </tr>
+    <tr>
+      <td><strong>YouTube transcript text</strong></td>
+      <td>When you click "Harvest Prompts", the transcript of the currently open YouTube video is read from the page DOM and transmitted to our proxy server for AI processing. It is never stored after processing completes.</td>
+      <td>Transmitted to proxy server; deleted immediately after processing</td>
+    </tr>
+    <tr>
+      <td><strong>Extracted prompts &amp; history</strong></td>
+      <td>Prompts extracted from videos are saved locally in your browser so you can review them later. We have no access to this data.</td>
+      <td>Locally in Chrome storage only</td>
+    </tr>
+    <tr>
+      <td><strong>Extraction usage count</strong></td>
+      <td>Your anonymous user ID and a count of extractions used this month are sent to our proxy server to enforce the free-tier limit.</td>
+      <td>Proxy server (anonymous ID only, no personal data)</td>
+    </tr>
+  </table>
+
+  <h2>3. What Data We Do NOT Collect</h2>
+  <ul>
+    <li>Your name, address, or any personally identifiable information</li>
+    <li>Your browsing history or activity on any website other than the active YouTube tab</li>
+    <li>Payment or financial information (payments are handled entirely by Stripe)</li>
+    <li>Passwords, authentication credentials, or cookies</li>
+    <li>Any data from YouTube pages you visit without clicking "Harvest Prompts"</li>
+  </ul>
+
+  <h2>4. How We Use Your Data</h2>
+  <ul>
+    <li><strong>Transcript text</strong> — sent to our proxy server and then to the Anthropic Claude API solely to extract AI prompts. It is not logged, stored, or used for any other purpose.</li>
+    <li><strong>Anonymous user ID &amp; usage count</strong> — used to track and enforce the 5 extractions/month free-tier limit per user.</li>
+    <li><strong>Pro subscriber email</strong> — used only to verify whether an active paid Stripe subscription exists for that email address. It is not used for marketing.</li>
+    <li><strong>Local prompt history</strong> — stored in your browser for your own convenience. We cannot access it.</li>
+  </ul>
+
+  <h2>5. Third Parties We Share Data With</h2>
+  <table>
+    <tr>
+      <th>Third Party</th>
+      <th>Data Shared</th>
+      <th>Purpose</th>
+      <th>Their Privacy Policy</th>
+    </tr>
+    <tr>
+      <td><strong>Anthropic (Claude API)</strong></td>
+      <td>YouTube transcript text</td>
+      <td>AI-powered prompt extraction</td>
+      <td><a href="https://www.anthropic.com/legal/privacy" target="_blank">anthropic.com/legal/privacy</a></td>
+    </tr>
+    <tr>
+      <td><strong>Render.com</strong></td>
+      <td>Anonymous user ID, usage count, transcript text (in transit)</td>
+      <td>Hosts our proxy server that routes requests to Anthropic</td>
+      <td><a href="https://render.com/privacy" target="_blank">render.com/privacy</a></td>
+    </tr>
+    <tr>
+      <td><strong>Stripe</strong></td>
+      <td>None — payment data is entered directly on Stripe's hosted page</td>
+      <td>Payment processing for Pro subscriptions</td>
+      <td><a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a></td>
+    </tr>
+  </table>
+  <p>We do not sell, rent, or trade your data to any party for advertising or marketing purposes.</p>
+
+  <h2>6. Data Retention</h2>
+  <ul>
+    <li><strong>Transcript text</strong> — retained for the duration of a single API request only (seconds). Deleted immediately after a response is returned. Never written to disk or a database.</li>
+    <li><strong>Anonymous user ID &amp; monthly usage count</strong> — stored on our proxy server and reset at the start of each calendar month. Records older than 90 days are automatically purged.</li>
+    <li><strong>Pro subscriber email</strong> — retained on our server only for as long as an active subscription exists. Deleted within 30 days of subscription cancellation.</li>
+    <li><strong>Local browser data</strong> — stored indefinitely in your browser until you clear it via the extension's "Clear" button or uninstall the extension.</li>
+  </ul>
+
+  <h2>7. Data Security</h2>
+  <p>All data transmitted between the extension, our proxy server, and Anthropic is encrypted in transit using TLS (HTTPS). Our proxy server does not persist transcript data to any database. Your local Chrome storage data is protected by Chrome's built-in sandboxing and is not accessible to other extensions or websites.</p>
+
+  <h2>8. Your Rights</h2>
+  <ul>
+    <li><strong>Access &amp; deletion</strong> — you can clear all locally stored data (prompts, history, user ID) by uninstalling the extension or using the "Clear" button. To request deletion of your anonymous server-side usage record, email <a href="mailto:nswaby64@gmail.com">nswaby64@gmail.com</a> with the subject "Data Deletion Request".</li>
+    <li><strong>Opt out</strong> — simply uninstalling the extension stops all data collection immediately.</li>
+    <li><strong>EU/EEA residents</strong> — you have rights under GDPR including access, rectification, erasure, and objection. Contact us at the email above to exercise these rights.</li>
+    <li><strong>California residents</strong> — under CCPA you have the right to know what personal data we collect and to request its deletion. We do not sell personal data.</li>
+  </ul>
+
+  <h2>9. Children's Privacy</h2>
+  <p>Prompt Harvest is not directed at children under the age of 13. We do not knowingly collect any personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
+
+  <h2>10. Chrome Permissions Justification</h2>
+  <table>
+    <tr>
+      <th>Permission</th>
+      <th>Why It's Required</th>
+    </tr>
+    <tr>
+      <td><strong>activeTab</strong></td>
+      <td>To read the transcript from the YouTube tab the user is currently viewing</td>
+    </tr>
+    <tr>
+      <td><strong>scripting</strong></td>
+      <td>To inject a script that reads the transcript panel from the YouTube DOM</td>
+    </tr>
+    <tr>
+      <td><strong>storage</strong></td>
+      <td>To save the anonymous user ID, prompt history, and Pro email locally in Chrome</td>
+    </tr>
+    <tr>
+      <td><strong>tabs</strong></td>
+      <td>To detect the active YouTube tab and read its URL to identify the video</td>
+    </tr>
+  </table>
+
+  <h2>11. Changes to This Policy</h2>
+  <p>We may update this policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of the extension after changes constitutes acceptance of the revised policy.</p>
+
+  <h2>12. Contact</h2>
+  <p>For any privacy-related questions or requests:</p>
+  <ul>
+    <li>Email: <a href="mailto:nswaby64@gmail.com">nswaby64@gmail.com</a></li>
+    <li>GitHub: <a href="https://github.com/nswaby64" target="_blank">github.com/nswaby64</a></li>
+  </ul>
+</div>
+
+<footer>
+  &copy; 2026 Prompt Harvest &nbsp;·&nbsp;
+  <a href="/">Home</a> &nbsp;·&nbsp;
+  <a href="mailto:nswaby64@gmail.com">Contact</a>
+</footer>
+
+</body>
+</html>
